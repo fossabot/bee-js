@@ -28,7 +28,7 @@ export async function send(
 ): Promise<void> {
   await safeAxios<BeeGenericResponse>({
     method: 'post',
-    url: `${url}${endpoint}/send/${topic}/${target.slice(0, 4)}`,
+    url: `${url}${endpoint}/send/${topic}/${target}`,
     data: await prepareData(data),
     responseType: 'json',
     params: { recipient },
