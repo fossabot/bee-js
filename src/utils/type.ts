@@ -19,7 +19,7 @@ import {
   AllTagsOptions,
   TAGS_LIMIT_MIN,
   TAGS_LIMIT_MAX,
-  PSS_TARGET_HEX_LENGTH,
+  PSS_TARGET_HEX_LENGTH_MAX,
 } from '../types'
 import { BeeArgumentError } from './error'
 import { isFile } from './file'
@@ -194,9 +194,9 @@ export function assertTag(value: unknown): asserts value is Tag {
 export function assertAddressPrefix(value: unknown): asserts value is AddressPrefix {
   assertHexString(value, undefined, 'AddressPrefix')
 
-  if (value.length > PSS_TARGET_HEX_LENGTH) {
+  if (value.length > PSS_TARGET_HEX_LENGTH_MAX) {
     throw new BeeArgumentError(
-      `AddressPrefix must have length of ${PSS_TARGET_HEX_LENGTH} at most! Got string with ${value.length}`,
+      `AddressPrefix must have length of ${PSS_TARGET_HEX_LENGTH_MAX} at most! Got string with ${value.length}`,
       value,
     )
   }
